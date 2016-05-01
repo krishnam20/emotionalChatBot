@@ -33,6 +33,12 @@ def parse_data(analysis_string):
   tone_data = []
   tones = parsed_data['document_tone']['tone_categories'][0]['tones']
   print("Printing your mood")
+  tones = parsed_data['document_tone']['tone_categories'][0]['tones']
+  for tone in tones:
+    tone_data.append(tone)
+    print("Printing tone:")
+    print(tone)
+  
   emotions = sorted(tones, key = lambda x: x['score'],reverse = True)
   maxEmotions = (emotions[0]['tone_id'])
   return maxEmotions

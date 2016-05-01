@@ -28,6 +28,7 @@ def handle(msg):
     #print("This is the second message: ", msg)
 
     userMessage = msg['text']
+    print(userMessage)
     userid = msg['chat']['id']
     #print("this is the message ", msg)
     print ("This is the user ID ",userid)
@@ -36,22 +37,26 @@ def handle(msg):
 
 
     bot.sendMessage(userid, "Welcome to the semantic bots interview")
-    message_list = ["Hello", "Hello How are you", "I am a chat bot"]
+    message_list = ["Hello", "Ohhh no I never thought you said that", 
+            "I am a chat bot", "I am a very handsome chatbot", "yummmmm",
+            "Once your a Hadooore,you are always a haodooooooreee!!!"]
     #print("about to print the content type")
     content_type, chat_type, chat_id = telepot.glance(msg)
     #maxEmotion = IBMmethod.IBMAlgorithm(userMessage, userid)
     #print (content_type, chat_type, chat_id)
 
+# get the IBM API for the semantic expression
     parsed = IBMmethod.parse_data(userMessage)
 
-# this send message is to return the biggest score mood and return that
-    bot.sendMessage(userid, "You are in "+parsed)
-
 # this send MEssage is to send back HEllo, and Hello how are you
-    #bot.sendMessage(userid,random.choice(message_list))
+    bot.sendMessage(userid,random.choice(message_list))
+
+# this send message is to return the biggest score mood and return that
+    bot.sendMessage(userid, "Honestly, You are in "+parsed)
+
+
 
     #bot.sendMessage(userid,'Hadooore, Hsadoooooreeeeee!!!')
- #   bot.sendMessage(chatID, 'http://www.yahoo.com \n no web page preview', disable_web_page_preview=True)
 
 
 
